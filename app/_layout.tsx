@@ -6,13 +6,17 @@ import { useEffect } from "react";
 import "react-native-reanimated";
 import Constants from "expo-constants";
 import { StatusBar } from "expo-status-bar";
+import React from "react";
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
   const [loaded] = useFonts({
-    SpaceMono: require("../assets/fonts/SpaceMono-Regular.ttf"),
+    nanum300: require("../assets/fonts/NanumSquareRoundL.ttf"),
+    nanum400: require("../assets/fonts/NanumSquareRoundR.ttf"),
+    nanum500: require("../assets/fonts/NanumSquareRoundB.ttf"),
+    nanum700: require("../assets/fonts/NanumSquareRoundEB.ttf"),
   });
 
   useEffect(() => {

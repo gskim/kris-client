@@ -1,6 +1,7 @@
-import { ThemedText } from "@/components/ThemedText";
+import React from "react";
 import { ThemedView } from "@/components/ThemedView";
 import { StyleSheet } from "react-native";
+import { ThemedText } from "@/components/ThemedText";
 
 export default function TabTwoScreen() {
   return (
