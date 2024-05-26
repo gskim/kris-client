@@ -1,12 +1,13 @@
-import { StyleSheet, View } from "react-native";
+import { StyleSheet } from "react-native";
 
 import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
+import React from "react";
 
 export default function HomeScreen() {
   return (
     <ThemedView style={styles.container}>
-      <ThemedText>홈 화면!</ThemedText>
+      <ThemedText type="title">홈 화면!</ThemedText>
     </ThemedView>
   );
 }

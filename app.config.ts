@@ -11,7 +11,7 @@ export default {
     userInterfaceStyle: "automatic",
     splash: {
       image: "./assets/images/splash.png",
-      resizeMode: "contain",
+      resizeMode: "cover",
       backgroundColor: "#080000",
     },
     ios: {
@@ -26,6 +26,10 @@ export default {
       },
       // googleServicesFile: "./google-services.json",
       package: IS_DEV ? "com.kris.dev" : "com.kris",
+    },
+    androidStatusBar: {
+      backgroundColor: "#C2185B",
+      translucent: false,
     },
     web: {
       bundler: "metro",
