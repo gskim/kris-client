@@ -2,13 +2,13 @@ import { DarkTheme, ThemeProvider } from "@react-navigation/native";
 import { useFonts } from "expo-font";
 import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
-import { useEffect } from "react";
+import { useCallback, useEffect } from "react";
 import "react-native-reanimated";
 import Constants from "expo-constants";
 import React from "react";
 import { StatusBar } from "expo-status-bar";
-import { SafeAreaProvider } from "react-native-safe-area-context";
-// Prevent the splash screen from auto-hiding before asset loading is complete.
+import { View } from "react-native";
+
 SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
@@ -19,20 +19,22 @@ export default function RootLayout() {
     nanum700: require("../assets/fonts/NanumSquareRoundEB.ttf"),
   });
 
-  useEffect(() => {
+  const onLayoutRootView = useCallback(async () => {
     if (loaded) {
-      SplashScreen.hideAsync();
+      // This tells the splash screen to hide immediately! If we call this after
+      // `setAppIsReady`, then we may see a blank screen while the app is
+      // loading its initial state and rendering its first pixels. So instead,
+      // we hide the splash screen once we know the root view has already
+      // performed layout.
+      await SplashScreen.hideAsync();
     }
   }, [loaded]);
 
-  if (!loaded) {
-    return null;
-  }
-
+  if (!loaded) return <StatusBar style="auto" />;
   return (
     <ThemeProvider value={DarkTheme}>
-      <SafeAreaProvider>
-        <StatusBar style="light" />
+      <View onLayout={onLayoutRootView} style={{ flex: 1 }}>
+        <StatusBar style="light" translucent />
         <Stack
           screenOptions={{
             contentStyle: {
@@ -43,7 +45,7 @@ export default function RootLayout() {
           <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
           <Stack.Screen name="+not-found" />
         </Stack>
-      </SafeAreaProvider>
+      </View>
     </ThemeProvider>
   );
 }

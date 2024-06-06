@@ -7,7 +7,7 @@ import React from "react";
 export default function HomeScreen() {
   return (
     <ThemedView style={styles.container}>
-      <ThemedText type="title">홈 화면!</ThemedText>
+      <ThemedText type="title">홈 화면</ThemedText>
     </ThemedView>
   );
 }

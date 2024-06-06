@@ -3,7 +3,7 @@ const IS_DEV = process.env.APP_VARIANT !== "production";
 export default {
   expo: {
     name: IS_DEV ? "kris-dev" : "kris",
-    slug: "kris",
+    slug: "kris-client",
     version: "1.0.0",
     orientation: "portrait",
     icon: "./assets/images/icon.png",
@@ -16,20 +16,16 @@ export default {
     },
     ios: {
       supportsTablet: true,
-      // googleSercivesFile: "./GoogleService-Info.plist",
       bundleIdentifier: IS_DEV ? "com.kris.dev" : "com.kris",
+      // googleSercivesFile: "./GoogleService-Info.plist",
     },
     android: {
       adaptiveIcon: {
         foregroundImage: "./assets/images/adaptive-icon.png",
         backgroundColor: "#080000",
       },
-      // googleServicesFile: "./google-services.json",
       package: IS_DEV ? "com.kris.dev" : "com.kris",
-    },
-    androidStatusBar: {
-      backgroundColor: "#C2185B",
-      translucent: false,
+      // googleServicesFile: "./google-services.json",
     },
     web: {
       bundler: "metro",

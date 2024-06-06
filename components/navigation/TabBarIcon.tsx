@@ -2,6 +2,7 @@
 
 import Foundation from "@expo/vector-icons/MaterialCommunityIcons";
 import { type IconProps } from "@expo/vector-icons/build/createIconSet";
+import React from "react";
 import { type ComponentProps } from "react";
 
 export function TabBarIcon({

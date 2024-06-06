@@ -6,7 +6,7 @@ import { ThemedText } from "@/components/ThemedText";
 export default function TabTwoScreen() {
   return (
     <ThemedView style={styles.container}>
-      <ThemedText>검색화면!</ThemedText>
+      <ThemedText type="title">검색화면!</ThemedText>
     </ThemedView>
   );
 }
